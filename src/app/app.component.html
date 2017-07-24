@@ -1,0 +1,23 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<h1>{{title}}</h1>
+<h2>家电</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes"
+    [class.selected]="hero === selectedHero"
+    (click)="onSelect(hero)">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}&nbsp;&nbsp;{{hero.price}}元
+  </li>
+</ul>
+<div *ngIf="selectedHero">
+  <h2>{{selectedHero.name}}</h2>
+  <div><label>id: </label>{{selectedHero.id}}</div>
+  <div>
+    <label>商品名: </label>
+    <input [(ngModel)]="selectedHero.name" placeholder="在此输入商品名"/>
+  </div>
+  <div>
+    <label>价格: </label>
+    <input [(ngModel)]="selectedHero.price" placeholder="在此修改价格"/>元
+  </div>
+</div>
+
